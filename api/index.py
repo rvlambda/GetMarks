@@ -11,7 +11,7 @@ try:
 except Exception as e:
     print(f"Error loading JSON: {e}")
 
-@app.route('/get_marks', methods=['GET'])
+@app.route('/api/get_marks', methods=['GET'])
 def get_marks():
     names = request.args.getlist('name')
     if not names:
