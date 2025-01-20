@@ -8,7 +8,7 @@ def home():
     if not names:
         return jsonify({"error": "Name parameter is missing"}), 400
     #return names
-    results = "marks: 10 20"
+    results = "10 20"
     if results:
         results = results.strip()
         return jsonify({"marks": results}), 200
