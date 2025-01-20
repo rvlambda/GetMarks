@@ -1,10 +1,11 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Hello, World!'
+    names = request.args.getlist('name')
+    return names
 
 @app.route('/about')
 def about():
