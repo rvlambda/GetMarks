@@ -1,4 +1,5 @@
-from flask import Flask, request,jsonify
+from flask import Flask, request,jsonify,json
+from os.path import join
 
 app = Flask(__name__)
 
@@ -8,6 +9,11 @@ def home():
     if not names:
         return jsonify({"error": "Name parameter is missing"}), 400
     #return names
+    try:
+        with open(join('public', 'q-vercel-python.json'),'r') as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"Error loading JSON: {e}")
     results = "10 20"
     if results:
         results = results.strip()
