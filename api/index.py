@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify
 import json
 import traceback
+from os.path import join
 
 app = Flask(__name__)
 
 # Load JSON data from file
 try:
-    with open('\public\q-vercel-python.json') as f:
+    with open(join('public', 'q-vercel-python.json'),'r') as f:
         data = json.load(f)
 except Exception as e:
     print(f"Error loading JSON: {e}")
