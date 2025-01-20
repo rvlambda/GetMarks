@@ -15,16 +15,16 @@ def home():
     except Exception as e:
         print(f"Error loading JSON: {e}")
  
-    results = ""
+    results = []
     for name in names:
         result = next((item for item in data if item['name'] == name), None)
         if result:
-            #results.append(result['marks'])
-            results += str(result['marks']) + " "
+            results.append(result['marks'])
+            #results += str(result['marks']) + " "
     
     
     if results:
-        results = results.strip()
+        #results = results.strip()
         return jsonify({"marks": results}), 200
     else:
         return jsonify({"error": "Names not found"}), 404
