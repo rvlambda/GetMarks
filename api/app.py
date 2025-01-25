@@ -3,7 +3,7 @@ from os.path import join
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/api')
 def home():
     names = request.args.getlist('name')
     if not names:
